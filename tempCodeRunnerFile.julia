@@ -1,0 +1,26 @@
+import numpy as np
+
+# Data for height (X) and weight (Y)
+X = np.array([61, 68, 68, 64, 65, 70, 63, 62, 64, 67])
+Y = np.array([112, 123, 130, 115, 110, 125, 100, 113, 116, 125])
+
+# Number of data points
+n = len(X)
+
+# Calculating the necessary sums
+sum_X = np.sum(X)
+sum_Y = np.sum(Y)
+sum_XY = np.sum(X * Y)
+sum_X2 = np.sum(X**2)
+
+# Calculating beta_1 (slope) and beta_0 (intercept)
+beta_1 = (n * sum_XY - sum_X * sum_Y) / (n * sum_X2 - sum_X**2)
+beta_0 = (sum_Y - beta_1 * sum_X) / n
+
+# Regression equation: Y = beta_0 + beta_1 * X
+
+# Estimating the weight for X = 69 inches
+X_new = 69
+Y_pred = beta_0 + beta_1 * X_new
+
+beta_1, beta_0, Y_pred
